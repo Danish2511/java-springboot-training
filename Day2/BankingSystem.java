@@ -1,5 +1,4 @@
 package Day2;
-// Base class BankAccount
 class BankAccount {
     protected String accountHolderName;
     protected String accountNumber;
@@ -43,7 +42,6 @@ class BankAccount {
     }
 }
 
-// Subclass SavingsAccount
 class SavingsAccount extends BankAccount {
     private static final double MIN_BALANCE = 500.0; // Minimum balance required for SavingsAccount
 
@@ -63,16 +61,13 @@ class SavingsAccount extends BankAccount {
     }
 }
 
-// Subclass CurrentAccount
 class CurrentAccount extends BankAccount {
-    private static final double OVERDRAFT_LIMIT = 1000.0; // Overdraft limit for CurrentAccount
+    private static final double OVERDRAFT_LIMIT = 1000.0;
 
-    // Constructor
     public CurrentAccount(String accountHolderName, String accountNumber, double initialBalance) {
         super(accountHolderName, accountNumber, initialBalance);
     }
 
-    // Override withdraw method to allow overdraft
     @Override
     public void withdraw(double amount) {
         if (amount > 0 && (balance - amount) >= -OVERDRAFT_LIMIT) {
@@ -83,7 +78,6 @@ class CurrentAccount extends BankAccount {
     }
 }
 
-// Main class to test the Banking System
 public class BankingSystem {
     public static void main(String[] args) {
         // Create a SavingsAccount and CurrentAccount
